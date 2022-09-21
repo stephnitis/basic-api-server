@@ -1,0 +1,31 @@
+{
+  "name": "basic-api-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage",
+    "db:config": "sequelize init:config",
+    "db:create": "sequelize db:create"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephnitis/basic-api-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephnitis/basic-api-server/issues"
+  },
+  "homepage": "https://github.com/stephnitis/basic-api-server#readme",
+  "dependencies": {
+    "eslint": "^8.23.1",
+    "pg": "^8.8.0",
+    "sequelize": "^6.23.0",
+    "sequelize-cli": "^6.4.1",
+    "sqlite3": "^5.1.1"
+  }
+}
