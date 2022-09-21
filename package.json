@@ -9,7 +9,7 @@
     "test-watch": "jest --watchAll --verbose --coverage",
     "db:config": "sequelize init:config",
     "db:create": "sequelize db:create"
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stephnitis/basic-api-server.git"
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/stephnitis/basic-api-server#readme",
   "dependencies": {
+    "dotenv": "^16.0.2",
     "eslint": "^8.23.1",
     "pg": "^8.8.0",
     "sequelize": "^6.23.0",
