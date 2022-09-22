@@ -1,6 +1,6 @@
 'use strict';
 
-const { sequelizeDatabase, MountainModel } = require('./src/models');
+const { sequelizeDatabase, MountainModel, ParkModel } = require('./src/models');
 const {start} = require('./src/server');
 
 sequelizeDatabase.sync()
