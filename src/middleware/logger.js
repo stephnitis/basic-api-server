@@ -1,9 +1,9 @@
-// 'use strict';
+'use strict';
 
-// function logger (req, res, next){
-//   console.log(`REQUEST: ${req.method}, ${req.originalUrl}`);
-//   next();
-// }
+function logger (req, res, next){
+  console.log(`REQUEST: ${req.method}, ${req.originalUrl}`);
+  next();
+}
 
-// module.exports = logger;
+module.exports = logger;
 
