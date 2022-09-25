@@ -68,25 +68,26 @@ describe('Testing Mountain CRUD', () => {
   test('Reads All Mountains', async () => {
     let response = await request.get('/mountains');
     console.log('should be two test records', response.body);
-    expect(response.body.length).toBe(5);
-    expect(response.body[3].name).toEqual('test one');
-    expect(response.body[3].summit).toEqual(111);
-    expect(response.body[3].tripType).toEqual('day hike');
-    expect(response.body[4].name).toEqual('test two');
-    expect(response.body[4].summit).toEqual(222);
-    expect(response.body[4].tripType).toEqual('backpack');
+    expect(response.body.length).toBe(2);
+    expect(response.body[0].name).toEqual('test one');
+    expect(response.body[0].summit).toEqual(111);
+    expect(response.body[0].tripType).toEqual('day hike');
+    expect(response.body[1].name).toEqual('test two');
+    expect(response.body[1].summit).toEqual(222);
+    expect(response.body[1].tripType).toEqual('backpack');
 
   });
 
   test('Reads Single Mountain', async () => {
     let response = await request.get('/mountains/1');
 
-    expect(response.body.name).toEqual('South Sister');
-    expect(response.body.summit).toEqual(10358);
+    expect(response.body.name).toEqual('test one');
+    expect(response.body.summit).toEqual(111);
+    expect(response.body.tripType).toEqual('day hike');
   });
 
   test('Updates a mountain', async () => {
-    let response = await request.put('/mountains/15').send({
+    let response = await request.put('/mountains/2').send({
       name: 'test update',
       summit: 333,
       tripType: 'mountaineering',
@@ -98,11 +99,11 @@ describe('Testing Mountain CRUD', () => {
   });
 
   test('Delete a mountain', async () => {
-    await request.delete('./mountains/14');
+    await request.delete('./mountains/1');
     let response = await request.get('/mountains');
-    console.log('should have 4 records', response.body);
+    console.log('should have 1 record', response.body);
 
-    expect(response.body.length).toBe(4);
+    expect(response.body.length).toBe(1);
   });
 
 });
