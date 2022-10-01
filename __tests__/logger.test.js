@@ -1,26 +1,29 @@
 'use strict';
 
-const logger = require('../src/middleware/logger');
+let logger = require('../src/middleware/logger');
 
-describe('Logger Middleware', () => {
-  //can use same variables for multiple tests
+describe('Test Logger Middleware', () => {
   let consoleSpy;
-  const req = {};
-  const res = {};
-  const next = jest.fn();
+  let req = {};
+  let res = {};
+  let next = jest.fn(); // spy on the next method
 
-  beforeEach( () => {
-    //attach to console *spy on it or take it over)
+  beforeEach(() => {
+    // Attach to the console (spy on it or take it over)
     consoleSpy = jest.spyOn(console, 'log').mockImplementation();
   });
-
   afterEach(() => {
+    // put things back to normal.  stop spying
     consoleSpy.mockRestore();
   });
 
-  test('works as expected', () => {
-    logger (req, res, next);
-    expect(consoleSpy).toHaveBeenCalledWith(req.method, req.path);
+  test('Properly logs output', () => {
+    logger(req, res, next);
+    console.log('req',req);
+    expect(consoleSpy).toHaveBeenCalledWith(`REQUEST: ${req.method}, ${req.originalUrl}`);
+  });
+  test('Properly calls next()', () => {
+    logger(req, res, next);
     expect(next).toHaveBeenCalledWith();
   });
 });

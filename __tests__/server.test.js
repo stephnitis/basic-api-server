@@ -99,7 +99,7 @@ describe('Testing Mountain CRUD', () => {
   });
 
   test('Delete a mountain', async () => {
-    await request.delete('./mountains/1');
+    await request.delete('/mountains/1');
     let response = await request.get('/mountains');
     console.log('should have 1 record', response.body);
 

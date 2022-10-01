@@ -44,8 +44,9 @@ router.delete('/mountains/:id', async (req, res, next) => {
       where: {id},
     });
     res.status(200).send('mountain deleted');
-  } catch(err){
-    next(err);
+  } catch(error){
+    console.log('Unable to Delete', error.message);
+    next('Unable to Delete');
   }
 
 });
