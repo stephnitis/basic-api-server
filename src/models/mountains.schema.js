@@ -8,7 +8,7 @@ module.exports = (sequelizeDatabase, DataTypes) => {
     },
     summit: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     tripType: {
       type: DataTypes.ENUM,
